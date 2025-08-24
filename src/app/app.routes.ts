@@ -3,20 +3,20 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-      path: 'remotes',
-      loadComponent: () =>
+      path: 'feature',
+      loadChildren: () =>
         loadRemoteModule({
           type: 'manifest',
           remoteName: 'remote-mfe',
-          exposedModule: './Component',
+          exposedModule: './feature',
         })
         .then(m => {
           console.log('Loaded remote module keys:', Object.keys(m));
-          return m.UsersComponent; // or RemoteEntryComponent if you switch later
+          return m.featureRoutes;
         })
         .catch(err => {
           console.error('Failed loading remote:', err);
-          // return BusinessErrorComponent; // your fallback if you have one
+          // return an unavailable component
           throw err;
         })
     }
