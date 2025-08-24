@@ -1,0 +1,5 @@
+{
+    "remote-mfe": {
+        "remoteEntry": "http://localhost:4202/remoteEntry.js"
+    }
+}
