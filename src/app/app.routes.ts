@@ -1,23 +1,24 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { Routes } from '@angular/router';
+import { UnavailableComponent } from './components/unavailable/unavailable.component';
 
 export const routes: Routes = [
     {
-      path: 'feature',
+      path: '',
       loadChildren: () =>
         loadRemoteModule({
           type: 'manifest',
-          remoteName: 'remote-mfe',
-          exposedModule: './feature',
+          remoteName: 'users-mfe',
+          exposedModule: './users',
         })
-        .then(m => {
-          console.log('Loaded remote module keys:', Object.keys(m));
-          return m.featureRoutes;
-        })
-        .catch(err => {
-          console.error('Failed loading remote:', err);
-          // return an unavailable component
-          throw err;
-        })
+        .then(m => m.usersRoutes)
+        //.catch(() => import('./components/unavailable/unavailable.component').then(m => m.UnavailableComponent))
+        //.catch(() => [
+        //  { path: '', redirectTo: '/unavailable', pathMatch: 'full' }
+        //]),
+    },
+    {
+      path: 'unavailable',
+      component: UnavailableComponent
     }
 ];

@@ -1,9 +1,9 @@
 {
-    "remote-mfe": {
+    "users-mfe": {
         "remoteEntry": "http://localhost:4202/remoteEntry.js",
-        "exposedModule": "./feature",
-        "displayName": "Remote MFE",
+        "exposedModule": "./users",
+        "displayName": "Users",
         "routePath": "remotes",
-        "exportName": "featureRoutes"
+        "exportName": "usersRoutes"
     }
 }
