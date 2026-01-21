@@ -1,0 +1,10 @@
+{
+  "header": {
+    "users": "Users",
+    "payments": "Payments"
+  },
+  "lang": {
+    "en": "English",
+    "fr": "Français"
+  }
+}

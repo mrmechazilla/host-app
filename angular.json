@@ -100,10 +100,7 @@
 						],
 						"inlineStyleLanguage": "scss",
 						"assets": [
-							{
-								"glob": "**/*",
-								"input": "public"
-							}
+  							{ "glob": "**/*", "input": "public", "output": "." }
 						],
 						"scripts": []
 					}

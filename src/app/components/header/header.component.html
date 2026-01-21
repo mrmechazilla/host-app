@@ -1,12 +1,23 @@
 <header class="header">
-    <a href="/">
+    <a routerLink="/">
         <img src="favicon.ico" alt="Angular Logo" class="logo">
     </a>
   
   <nav>
     <ul>
-      <li><a routerLink="/users" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">USERS</a></li>
-      <li><a routerLink="/payments" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">PAYMENTS</a></li>
+      <li><a routerLink="/users" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">{{ 'header.users' | transloco }}</a></li>
+      <li><a routerLink="/payments" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">{{ 'header.payments' | transloco }}</a></li>
     </ul>
   </nav>
+  <select
+    #langSelect
+    class="select-language"
+    [value]="activeLanguage"
+    (change)="onLanguageChange(langSelect.value)"
+    aria-label="Language"
+  >
+    @for (lang of supportedLanguages; track lang) {
+      <option [value]="lang">{{ ('lang.' + lang) | transloco }}</option>
+    }
+  </select>
 </header>
